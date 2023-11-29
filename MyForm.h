@@ -55,6 +55,11 @@ namespace ConsoleApplication1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::TextBox^ txt_adresse;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::TextBox^ txt_ville;
+	private: System::Windows::Forms::TextBox^ txt_cp;
+	private: System::Windows::Forms::Label^ label6;
+
 	protected:
 
 	private:
@@ -83,6 +88,10 @@ namespace ConsoleApplication1 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->txt_adresse = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->txt_ville = (gcnew System::Windows::Forms::TextBox());
+			this->txt_cp = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -211,11 +220,50 @@ namespace ConsoleApplication1 {
 			this->label4->Text = L"Adresse";
 			this->label4->Click += gcnew System::EventHandler(this, &MyForm::label4_Click);
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(293, 457);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(38, 20);
+			this->label5->TabIndex = 14;
+			this->label5->Text = L"Ville";
+			// 
+			// txt_ville
+			// 
+			this->txt_ville->Location = System::Drawing::Point(399, 457);
+			this->txt_ville->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->txt_ville->Name = L"txt_ville";
+			this->txt_ville->Size = System::Drawing::Size(458, 26);
+			this->txt_ville->TabIndex = 13;
+			this->txt_ville->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
+			// 
+			// txt_cp
+			// 
+			this->txt_cp->Location = System::Drawing::Point(399, 501);
+			this->txt_cp->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->txt_cp->Name = L"txt_cp";
+			this->txt_cp->Size = System::Drawing::Size(458, 26);
+			this->txt_cp->TabIndex = 15;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(270, 501);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(103, 20);
+			this->label6->TabIndex = 16;
+			this->label6->Text = L"Code postale";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(899, 511);
+			this->ClientSize = System::Drawing::Size(899, 547);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->txt_cp);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->txt_ville);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->txt_adresse);
 			this->Controls->Add(this->label3);
@@ -263,6 +311,8 @@ private: System::Void txt_nom_TextChanged(System::Object^ sender, System::EventA
 private: System::Void txt_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
