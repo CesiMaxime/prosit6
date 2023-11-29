@@ -1,6 +1,7 @@
 #pragma once
 #include "CLservice.h"
 
+
 namespace ConsoleApplication1 {
 
 	using namespace System;
@@ -245,6 +246,7 @@ namespace ConsoleApplication1 {
 			this->txt_cp->Name = L"txt_cp";
 			this->txt_cp->Size = System::Drawing::Size(458, 26);
 			this->txt_cp->TabIndex = 15;
+			this->txt_cp->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_cp_TextChanged);
 			// 
 			// label6
 			// 
@@ -300,7 +302,7 @@ namespace ConsoleApplication1 {
 	}
 	private: System::Void btn_insert_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oSvc->ajouterUnePersonne(this->txt_nom->Text, this->txt_prenom->Text);
+		this->oSvc->ajouterUnePersonne(this->txt_nom->Text, this->txt_prenom->Text, this->txt_ville->Text, this->txt_cp->Text);
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -313,6 +315,8 @@ private: System::Void txt_prenom_TextChanged(System::Object^ sender, System::Eve
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txt_cp_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

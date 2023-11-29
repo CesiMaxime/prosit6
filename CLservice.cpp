@@ -13,12 +13,14 @@ System::Data::DataSet^ NS_Comp_Svc::CLservices::selectionnerToutesLesPersonnes(S
 	sql = this->oMappTB->Select();
 	return this->oCad->getRows(sql, dataTableName);
 }
-void NS_Comp_Svc::CLservices::ajouterUnePersonne(System::String^ nom, System::String^ prenom)
+void NS_Comp_Svc::CLservices::ajouterUnePersonne(System::String^ nom, System::String^ prenom, System::String^ ville, System::String^ cp)
 {
 	System::String^ sql;
 
 	this->oMappTB->setNom(nom);
 	this->oMappTB->setPrenom(prenom);
+	this->oMappTB->setVille(ville);
+	this->oMappTB->setCp(cp);
 	sql = this->oMappTB->Insert();
 
 	this->oCad->actionRows(sql);

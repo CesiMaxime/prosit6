@@ -1,7 +1,7 @@
 
 
 use prosit6;
-
+/*
 drop table Adresses;
 drop table Client;
 
@@ -19,7 +19,7 @@ CREATE TABLE Adresses(
    id_personne INT NOT NULL,
    FOREIGN KEY(id_personne) REFERENCES Client(id)
 );
-
+*/
 SELECT * FROM dbo.Client;
 SELECT * FROM dbo.Adresses;
 
