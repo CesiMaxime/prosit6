@@ -3,7 +3,9 @@
 
 System::String^ NS_Comp_Mappage::CLmapTB::Select(void)
 {
-	return "SELECT [id], [nom], [prenom] FROM [prosit6].[dbo].[Client]";
+	return "SELECT [prosit6].[dbo].[Adresses].[id], [nom], [prenom], [adresse], [ville], [cp] \
+	FROM[prosit6].[dbo].[Client] INNER JOIN[prosit6].[dbo].[Adresses] \
+	ON [prosit6].[dbo].[Client].[id] = [prosit6].[dbo].[Adresses].[id_personne]";
 }
 System::String^ NS_Comp_Mappage::CLmapTB::Insert(void)
 {

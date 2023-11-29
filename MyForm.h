@@ -50,6 +50,11 @@ namespace ConsoleApplication1 {
 
 	private: NS_Comp_Svc::CLservices^ oSvc;
 	private: System::Data::DataSet^ oDs;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::TextBox^ txt_adresse;
+	private: System::Windows::Forms::Label^ label4;
 	protected:
 
 	private:
@@ -73,22 +78,30 @@ namespace ConsoleApplication1 {
 			this->txt_id = (gcnew System::Windows::Forms::TextBox());
 			this->txt_nom = (gcnew System::Windows::Forms::TextBox());
 			this->txt_prenom = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->txt_adresse = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_enr))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dgv_enr
 			// 
 			this->dgv_enr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgv_enr->Location = System::Drawing::Point(12, 12);
+			this->dgv_enr->Location = System::Drawing::Point(22, 14);
+			this->dgv_enr->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dgv_enr->Name = L"dgv_enr";
-			this->dgv_enr->Size = System::Drawing::Size(472, 150);
+			this->dgv_enr->RowHeadersWidth = 62;
+			this->dgv_enr->Size = System::Drawing::Size(835, 231);
 			this->dgv_enr->TabIndex = 0;
 			// 
 			// btn_load
 			// 
-			this->btn_load->Location = System::Drawing::Point(15, 183);
+			this->btn_load->Location = System::Drawing::Point(22, 282);
+			this->btn_load->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn_load->Name = L"btn_load";
-			this->btn_load->Size = System::Drawing::Size(75, 129);
+			this->btn_load->Size = System::Drawing::Size(112, 198);
 			this->btn_load->TabIndex = 1;
 			this->btn_load->Text = L"Load DB";
 			this->btn_load->UseVisualStyleBackColor = true;
@@ -96,9 +109,10 @@ namespace ConsoleApplication1 {
 			// 
 			// btn_insert
 			// 
-			this->btn_insert->Location = System::Drawing::Point(96, 183);
+			this->btn_insert->Location = System::Drawing::Point(144, 282);
+			this->btn_insert->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn_insert->Name = L"btn_insert";
-			this->btn_insert->Size = System::Drawing::Size(75, 37);
+			this->btn_insert->Size = System::Drawing::Size(112, 57);
 			this->btn_insert->TabIndex = 2;
 			this->btn_insert->Text = L"INS";
 			this->btn_insert->UseVisualStyleBackColor = true;
@@ -106,48 +120,107 @@ namespace ConsoleApplication1 {
 			// 
 			// btn_delete
 			// 
-			this->btn_delete->Location = System::Drawing::Point(96, 275);
+			this->btn_delete->Location = System::Drawing::Point(144, 423);
+			this->btn_delete->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn_delete->Name = L"btn_delete";
-			this->btn_delete->Size = System::Drawing::Size(75, 37);
+			this->btn_delete->Size = System::Drawing::Size(112, 57);
 			this->btn_delete->TabIndex = 3;
 			this->btn_delete->Text = L"DEL";
 			this->btn_delete->UseVisualStyleBackColor = true;
 			// 
 			// btn_update
 			// 
-			this->btn_update->Location = System::Drawing::Point(96, 229);
+			this->btn_update->Location = System::Drawing::Point(144, 352);
+			this->btn_update->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn_update->Name = L"btn_update";
-			this->btn_update->Size = System::Drawing::Size(75, 37);
+			this->btn_update->Size = System::Drawing::Size(112, 57);
 			this->btn_update->TabIndex = 4;
 			this->btn_update->Text = L"UPD";
 			this->btn_update->UseVisualStyleBackColor = true;
 			// 
 			// txt_id
 			// 
-			this->txt_id->Location = System::Drawing::Point(177, 183);
+			this->txt_id->Location = System::Drawing::Point(399, 282);
+			this->txt_id->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txt_id->Name = L"txt_id";
-			this->txt_id->Size = System::Drawing::Size(307, 20);
+			this->txt_id->Size = System::Drawing::Size(458, 26);
 			this->txt_id->TabIndex = 5;
+			this->txt_id->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_id_TextChanged);
 			// 
 			// txt_nom
 			// 
-			this->txt_nom->Location = System::Drawing::Point(177, 209);
+			this->txt_nom->Location = System::Drawing::Point(399, 322);
+			this->txt_nom->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txt_nom->Name = L"txt_nom";
-			this->txt_nom->Size = System::Drawing::Size(307, 20);
+			this->txt_nom->Size = System::Drawing::Size(458, 26);
 			this->txt_nom->TabIndex = 6;
+			this->txt_nom->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_nom_TextChanged);
 			// 
 			// txt_prenom
 			// 
-			this->txt_prenom->Location = System::Drawing::Point(177, 238);
+			this->txt_prenom->Location = System::Drawing::Point(399, 366);
+			this->txt_prenom->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txt_prenom->Name = L"txt_prenom";
-			this->txt_prenom->Size = System::Drawing::Size(307, 20);
+			this->txt_prenom->Size = System::Drawing::Size(458, 26);
 			this->txt_prenom->TabIndex = 7;
+			this->txt_prenom->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_prenom_TextChanged);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(302, 288);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(26, 20);
+			this->label1->TabIndex = 8;
+			this->label1->Text = L"ID";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(293, 325);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(42, 20);
+			this->label2->TabIndex = 9;
+			this->label2->Text = L"Nom";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(293, 366);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(64, 20);
+			this->label3->TabIndex = 10;
+			this->label3->Text = L"Prenom";
+			// 
+			// txt_adresse
+			// 
+			this->txt_adresse->Location = System::Drawing::Point(399, 412);
+			this->txt_adresse->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->txt_adresse->Name = L"txt_adresse";
+			this->txt_adresse->Size = System::Drawing::Size(458, 26);
+			this->txt_adresse->TabIndex = 11;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(293, 415);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(68, 20);
+			this->label4->TabIndex = 12;
+			this->label4->Text = L"Adresse";
+			this->label4->Click += gcnew System::EventHandler(this, &MyForm::label4_Click);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(506, 332);
+			this->ClientSize = System::Drawing::Size(899, 511);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->txt_adresse);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txt_prenom);
 			this->Controls->Add(this->txt_nom);
 			this->Controls->Add(this->txt_id);
@@ -156,6 +229,7 @@ namespace ConsoleApplication1 {
 			this->Controls->Add(this->btn_insert);
 			this->Controls->Add(this->btn_load);
 			this->Controls->Add(this->dgv_enr);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -180,5 +254,15 @@ namespace ConsoleApplication1 {
 	{
 		this->oSvc->ajouterUnePersonne(this->txt_nom->Text, this->txt_prenom->Text);
 	}
-	};
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void txt_id_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txt_nom_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txt_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
