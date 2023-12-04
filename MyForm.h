@@ -1,6 +1,6 @@
 #pragma once
 #include "CLservice.h"
-
+#include "MyForm2.h"
 
 namespace ConsoleApplication1 {
 
@@ -24,16 +24,28 @@ namespace ConsoleApplication1 {
 			//TODO: ajoutez ici le code du constructeur
 			//
 		}
-
+		MyForm(ConsoleApplication1::MyForm2^ inparent)
+		{
+			InitializeComponent();
+			this->parent = inparent;
+			//TODO: ajoutez ici le code du constructeur
+			//
+		}
 	protected:
-		/// <summary>
+		MyForm2^ parent;
+	protected:
+		/// 
 		/// Nettoyage des ressources utilisées.
 		/// </summary>
 		~MyForm()
 		{
+			
+			parent->Show();
+			
 			if (components)
 			{
 				delete components;
+
 			}
 		}
 	private: System::Windows::Forms::DataGridView^ dgv_enr;
@@ -137,6 +149,7 @@ namespace ConsoleApplication1 {
 			this->btn_delete->TabIndex = 3;
 			this->btn_delete->Text = L"DEL";
 			this->btn_delete->UseVisualStyleBackColor = true;
+			this->btn_delete->Click += gcnew System::EventHandler(this, &MyForm::btn_delete_Click);
 			// 
 			// btn_update
 			// 
@@ -317,6 +330,8 @@ private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txt_cp_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btn_delete_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

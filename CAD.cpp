@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "CAD.h"
 
-
 NS_Comp_Data::CLcad::CLcad(void)
 {
 	this->sCnx = "Data Source = DESKTOP-B36UASG\\MSSQL_MAXIME;Initial Catalog = prosit6;User ID = utilisateurP6; Password=azerty";

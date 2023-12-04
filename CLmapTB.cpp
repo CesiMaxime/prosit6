@@ -10,7 +10,7 @@ System::String^ NS_Comp_Mappage::CLmapTB::Select(void)
 }
 System::String^ NS_Comp_Mappage::CLmapTB::Insert(void)
 {
-	//CTRL Z HERE
+
 	return "INSERT INTO Client (nom, prenom, ville, cp) VALUES('" + this->nom + "','" + this->prenom + "','" + this->ville + "','" + this->cp+"');";
 }
 System::String^ NS_Comp_Mappage::CLmapTB::Delete(void)
